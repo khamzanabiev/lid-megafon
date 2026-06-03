@@ -1,0 +1,990 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appnet - Цифровые решения для вашего бизнеса!</title>
+  <link rel="shortcut icon" href="./assets/img/favicon.png">
+  <link rel="stylesheet" href="./assets/css/plugins.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/colors/aqua.css">
+  <link rel="preload" href="./assets/css/fonts/thicccboi.css" as="style" onload="this.rel='stylesheet'">
+  <style>
+.hero-header {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Navbar внутри header */
+.custom-navbar {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 300px);
+
+  border-radius: 20px;
+  padding: 15px 0;
+
+  background-color: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+}
+
+
+.custom-navbar .nav-link {
+  color: #fff;
+  font-weight: 500;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #0d6efd;
+}
+
+.custom-navbar,
+.custom-navbar.navbar-light,
+.custom-navbar.bg-white,
+.custom-navbar.navbar-scrolled {
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+/* Фон с блюром */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-bg .hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7) blur(5px);
+}
+
+.hero-bg .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+}
+
+/* Контент */
+.hero-content {
+  position: relative;
+  z-index: 11;
+  margin: 200px;
+  top: 200px;
+  transform: translateY(-50%);
+  color: #fff;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.hero-buttons .btn {
+  margin: 0 15px;
+  padding: 15px 30px;
+  font-size: 1.25rem;
+  border-radius: 10px;
+}
+
+.btn-sales {
+    color: black !important;
+    background-color: #D6FF03 !important;
+    border-radius: 60px !important;
+    border-color: #D6FF03;
+}
+
+.btn-sales:hover {
+    background-color: #859d0e !important;
+}
+
+.btn-yellow-gradient {
+  position: relative;
+  background: transparent;
+  color: #D6FF03 !important;
+  font-weight: 600;
+  padding: 16px 36px;
+  border-radius: 60px !important;
+  border: none;
+  z-index: 0;
+}
+
+/* Градиентный бордер */
+.btn-yellow-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px; /* толщина бордера */
+  border-radius: inherit;
+
+  background: linear-gradient(
+    120deg,
+    #ffb700,
+    #ffea70,
+    #ffcc00,
+    #ffea70,
+    #ffb700
+  );
+  background-size: 300% 300%;
+  animation: gradientBorderMove 5s linear infinite;
+
+  /* ВЫРЕЗАЕМ центр */
+ -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Hover */
+.btn-yellow-gradient:hover {
+  color: #000;
+}
+
+/* Анимация */
+@keyframes gradientBorderMove {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+
+.button-wrapper {
+  position: relative;
+}
+
+.sales-button {
+  display: block;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 16px 32px;
+  background-color: black;
+  color: white;
+	border-radius: 50px;
+  border: 0px;
+  cursor: pointer;
+}
+
+.sales-button-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background: linear-gradient(90deg, #FF8038 0%, #FF0099 30.43%, #00EBEB 68.23%, #DB00FF 100%);
+  background-size: 600% 600%;
+  border-radius: 50px;
+  animation: AnimateBorder 4s ease infinite;
+  -webkit-animation: AnimateBorder 4s ease infinite;
+  -moz-animation: AnimateBorder 4s ease infinite;
+  z-index: -1;
+  transform: translate(-2px, -2px);
+  transition: filter 1s ease-in;
+}
+
+.sales-wrapper:hover .button-bg {
+  filter: blur(10px);
+  transition: filter .4s ease-in;
+}
+
+
+@-webkit-keyframes AnimateBorder {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimateBorder {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimateBorder {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+
+@keyframes rotateTag {
+  0% { transform: rotate(45deg); }
+  50% { transform: rotate(50deg); }
+  100% { transform: rotate(45deg); }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+
+.hero-title { font-size: 2.5rem; }
+  .hero-buttons .btn { margin: 10px 0; width: 70%; }
+  .promo-tag { top: 10px; right: -40px; padding: 8px 25px; font-size: 0.9rem; }
+
+  /* HEADER */
+  .hero-header {
+    height: 100svh; /* фикс iOS */
+  }
+
+  /* NAVBAR */
+  .custom-navbar {
+    top: 16px;
+    width: calc(100% - 32px);
+    padding: 10px 14px;
+    border-radius: 16px;
+  }
+
+  .custom-navbar .container {
+    padding: 0;
+  }
+
+  /* логотипы */
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .navbar-brand img {
+    max-height: 36px;
+    width: auto;
+    margin: 0 !important;
+  }
+
+  /* бургер */
+  .navbar-toggler {
+    border: none;
+    padding: 6px;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+
+  /* раскрытое меню */
+  .navbar-collapse {
+    margin-top: 12px;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+    padding: 12px;
+  }
+
+  .navbar-nav {
+    gap: 8px;
+  }
+
+  .nav-link {
+    padding: 10px 12px;
+    border-radius: 10px;
+  }
+
+  /* HERO CONTENT */
+  .hero-content {
+    margin: 0;
+    padding: 0 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+    line-height: 1.15;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+
+  .hero-content span {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+  }
+
+  /* КНОПКИ */
+  .hero-content .btn {
+    width: 100%;
+    margin: 8px 0 !important;
+    padding: 14px 0;
+    font-size: 1rem;
+  }
+}
+
+
+</style>
+</head>
+
+<body>
+  <div class="content-wrapper">
+   <header class="hero-header">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container flex-lg-row flex-nowrap align-items-center">
+        <a class="navbar-brand" href="./index.html">
+            <img class="logo-light m-3" src="./assets/img/logos/logo-white.png" style="width: 200px;" alt="">
+            <img class="logo-light m-3" src="./assets/img/photos/v.png" alt="">
+            <img class="logo-light" src="./assets/img/photos/logo-lid.png" style="width: 100px;" alt="">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Что вас ждет</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Кого мы ждем</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Программа</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Партнеры</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Вопросы и ответы</a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+    <!-- Фоновое изображение -->
+    <div class="hero-bg">
+        <img src="./assets/img/photos/mainblock.jpg" alt="mainblock" class="hero-img">
+        <div class="hero-overlay"></div>
+    </div>
+
+    <!-- Контент -->
+   <div class="hero-content container">
+  
+  <!-- meta инфа -->
+  <div class="hero-meta row gy-3 mb-4" style="width: 750px;">
+    <div class="col-12 col-md-4 d-flex align-items-center gap-2">
+      <img src="./assets/img/icons/date-icon.png" alt="">
+      <span class="text-white">14 февраля</span>
+    </div>
+
+    <div class="col-12 col-md-4 d-flex align-items-center gap-2">
+      <img src="./assets/img/icons/location-icon.png" alt="">
+      <span class="text-white">г. Душанбе, Crowne Plaza Hotel</span>
+    </div>
+
+    <div class="col-12 col-md-4 d-flex align-items-center gap-2">
+      <img src="./assets/img/icons/price-icon.png" alt="">
+      <span class="text-white">300 TJS</span>
+    </div>
+  </div>
+
+  <!-- Заголовок -->
+  <h1 class="hero-title fs-40 text-white mb-3">
+    HR-brand как драйвер <br/> роста бизнеса:
+  </h1>
+
+  <!-- Описание -->
+  <p class="hero-desc text-white mb-4">
+    Встреча лучших практик и новых тенденций <br class="d-none d-md-block">
+    в управлении людьми
+  </p>
+
+  <!-- CTA -->
+  <div class="hero-cta">
+    <span class="hero-note d-block mb-3">Количество мест ограничено!</span>
+
+    <div class="d-flex flex-column flex-md-row gap-3">
+      <a class="btn btn-lg btn-sales">Купить билет</a>
+      <a class="btn btn-lg btn-yellow-gradient">Купить со скидкой
+        <span class="position-absolute top-0 fs-15 start-100 translate-middle badge rounded-pill bg-danger">
+         -30%
+    </span>
+      </a>
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    <!-- /header -->
+    <section class="wrapper bg-light">
+      <div class="container pt-19 pt-md-21 pb-16 pb-md-18">
+        <div class="d-flex justify-content-center">
+          <div>
+            <h3 class="display-4 mb-9">Что вас ждет</h3>
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+         
+        <div class="d-flex justify-content-center">
+            <div>
+                <div class="card bg-dark mb-3 mt-10" style="max-width: 940px;">
+                    <div class="row g-0">
+                        <div class="d-flex">
+                            <div class="card-body">
+                                <h5 class="card-title fs-25 text-white">1  HR — как точка роста</h5>
+                                <p class="card-text text-white">Поговорим о роли HR в бизнесе без общих слов. Разберём реальные кейсы и инструменты, которые помогают влиять на рост компании, а не просто сопровождать процессы</p>
+                            </div>
+                            <img src="./assets/img/photos/card-image1.png"  class="img-fluid rounded-end" alt="...">
+                        </div>
+                    </div>
+                </div>
+                 <div class="card bg-dark mb-3 mt-10" style="max-width: 940px;">
+                    <div class="row g-0">
+                        <div class="d-flex">
+                            <div class="card-body">
+                                <h5 class="card-title fs-25 text-white">2  Понимание своего HR-бренда</h5>
+                                <p class="card-text text-white">Посмотрим на компанию глазами кандидатов. Разберём HR-бренд, найдём риски, соберём EVP и определим, чем вы реально отличаетесь как работодатель</p>
+                            </div>
+                            <img src="./assets/img/photos/card-image2.png"  class="img-fluid rounded-end" alt="...">
+                        </div>
+                    </div>
+                </div>
+                 <div class="card bg-secondary mb-3 mt-10" style="max-width: 940px;">
+                    <div class="row g-0">
+                        <div class="d-flex">
+                            <div class="card-body">
+                                <h5 class="card-title fs-25 text-white">3  Живая корпоративная культура</h5>
+                                <p class="card-text text-white">Обсудим, как выстраивать культуру, онбординг и внутренние коммуникации так, чтобы они работали на людей и на бизнес, а не существовали формально</p>
+                            </div>
+                            <img src="./assets/img/photos/card-image3.png"  class="img-fluid rounded-end" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+     <section class="wrapper bg-light">
+      <div class="container pb-16 pb-md-18">
+        <div class="d-flex justify-content-center">
+          <div>
+            <h3 class="display-4 mb-4">Кого мы ждем</h3>
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+         
+        <div class="d-flex justify-content-center mt-10">
+            <div>
+                <div class="card text-white bg-secondary mb-3" style="width: 800px">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-white">HR-директоров</h5>
+                        <h5 class="card-title text-white">CEO и топ-менеджеров</h5>
+                        <h5 class="card-title text-white">HR-специалистов и рекрутеров</h5>
+                        <h5 class="card-title text-white">Менеджеров по обучению и развитию</h5>
+                        <h5 class="card-title text-white">Собственников и основателей бизнеса</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+     <section class="wrapper bg-light">
+      <div class="container pt-5 pt-md-21 pb-16 pb-md-18">
+        <div class="d-flex justify-content-center">
+          <div>
+            <h3 class="display-4 mb-9">Расписание и спикеры</h3>
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+         
+        <div class="d-flex justify-content-center">
+            <div>
+                <div class="card bg-dark mb-3 mt-10" style="max-width: 940px;">
+                    <div class="row g-0">
+                        <div class="d-flex">
+                            <div class="card-body">
+                                <h5 class="card-title fs-25 text-white">1  HR — как точка роста</h5>
+                                <p class="card-text text-white">Поговорим о роли HR в бизнесе без общих слов. Разберём реальные кейсы и инструменты, которые помогают влиять на рост компании, а не просто сопровождать процессы</p>
+                            </div>
+                            <img src="./assets/img/photos/card-image1.png"  class="img-fluid rounded-end" alt="...">
+                        </div>
+                    </div>
+                </div>
+                 <div class="card bg-dark mb-3 mt-10" style="max-width: 940px;">
+                    <div class="row g-0">
+                        <div class="d-flex">
+                            <div class="card-body">
+                                <h5 class="card-title fs-25 text-white">2  Понимание своего HR-бренда</h5>
+                                <p class="card-text text-white">Посмотрим на компанию глазами кандидатов. Разберём HR-бренд, найдём риски, соберём EVP и определим, чем вы реально отличаетесь как работодатель</p>
+                            </div>
+                            <img src="./assets/img/photos/card-image2.png"  class="img-fluid rounded-end" alt="...">
+                        </div>
+                    </div>
+                </div>
+                 <div class="card bg-secondary mb-3 mt-10" style="max-width: 940px;">
+                    <div class="row g-0">
+                        <div class="d-flex">
+                            <div class="card-body">
+                                <h5 class="card-title fs-25 text-white">3  Живая корпоративная культура</h5>
+                                <p class="card-text text-white">Обсудим, как выстраивать культуру, онбординг и внутренние коммуникации так, чтобы они работали на людей и на бизнес, а не существовали формально</p>
+                            </div>
+                            <img src="./assets/img/photos/card-image3.png"  class="img-fluid rounded-end" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section class="wrapper image-wrapper bg-image bg-overlay" data-image-src="./assets/img/photos/bg1.jpg">
+      <div class="container py-18">
+        <div class="row">
+          <div class="col-lg-8">
+            <h2 class="fs-16 text-uppercase text-line text-white mb-3">Наша команда</h2>
+            <h3 class="display-4 mb-6 text-white pe-xxl-18">Наша команда разработчиков и дизайнеров стараются сделать Ваш проект максимально удобным и красивым.</h3>
+            <a href="#" class="btn btn-white rounded mb-0 text-nowrap">О нас</a>
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section class="wrapper bg-light angled upper-end">
+      <div class="container py-14 py-md-16">
+        <div class="row">
+          <div class="col-lg-9 col-xl-8 col-xxl-7">
+            <h2 class="fs-16 text-uppercase text-line text-primary mb-3">Case Studies</h2>
+            <h3 class="display-4 mb-9">Check out some of our awesome projects with creative ideas and great design.</h3>
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+        <div class="swiper-container blog grid-view mb-10" data-margin="30" data-dots="true" data-items-xl="3" data-items-md="2" data-items-xs="1">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <article>
+                  <figure class="overlay overlay-1 hover-scale rounded mb-6"><a href="#"> <img src="./assets/img/photos/b4.jpg" alt="" /></a>
+                    <figcaption>
+                      <h5 class="from-top mb-0">Read More</h5>
+                    </figcaption>
+                  </figure>
+                  <div class="post-header">
+                    <h2 class="post-title h3 mb-3"><a class="link-dark" href="./blog-post.html">Ligula tristique quis risus</a></h2>
+                  </div>
+                  <!-- /.post-header -->
+                  <div class="post-footer">
+                    <ul class="post-meta">
+                      <li class="post-date"><i class="uil uil-calendar-alt"></i><span>14 Apr 2022</span></li>
+                      <li class="post-comments"><a href="#"><i class="uil uil-file-alt fs-15"></i>Coding</a></li>
+                    </ul>
+                    <!-- /.post-meta -->
+                  </div>
+                  <!-- /.post-footer -->
+                </article>
+                <!-- /article -->
+              </div>
+              <!--/.swiper-slide -->
+              <div class="swiper-slide">
+                <article>
+                  <figure class="overlay overlay-1 hover-scale rounded mb-6"><a href="#"> <img src="./assets/img/photos/b5.jpg" alt="" /></a>
+                    <figcaption>
+                      <h5 class="from-top mb-0">Read More</h5>
+                    </figcaption>
+                  </figure>
+                  <div class="post-header">
+                    <h2 class="post-title h3 mb-3"><a class="link-dark" href="./blog-post.html">Nullam id dolor elit id nibh</a></h2>
+                  </div>
+                  <!-- /.post-header -->
+                  <div class="post-footer">
+                    <ul class="post-meta">
+                      <li class="post-date"><i class="uil uil-calendar-alt"></i><span>29 Mar 2022</span></li>
+                      <li class="post-comments"><a href="#"><i class="uil uil-file-alt fs-15"></i>Workspace</a></li>
+                    </ul>
+                    <!-- /.post-meta -->
+                  </div>
+                  <!-- /.post-footer -->
+                </article>
+                <!-- /article -->
+              </div>
+              <!--/.swiper-slide -->
+              <div class="swiper-slide">
+                <article>
+                  <figure class="overlay overlay-1 hover-scale rounded mb-6"><a href="#"> <img src="./assets/img/photos/b6.jpg" alt="" /></a>
+                    <figcaption>
+                      <h5 class="from-top mb-0">Read More</h5>
+                    </figcaption>
+                  </figure>
+                  <div class="post-header">
+                    <h2 class="post-title h3 mb-3"><a class="link-dark" href="./blog-post.html">Ultricies fusce porta elit</a></h2>
+                  </div>
+                  <!-- /.post-header -->
+                  <div class="post-footer">
+                    <ul class="post-meta">
+                      <li class="post-date"><i class="uil uil-calendar-alt"></i><span>26 Feb 2022</span></li>
+                      <li class="post-comments"><a href="#"><i class="uil uil-file-alt fs-15"></i>Meeting</a></li>
+                    </ul>
+                    <!-- /.post-meta -->
+                  </div>
+                  <!-- /.post-footer -->
+                </article>
+                <!-- /article -->
+              </div>
+              <!--/.swiper-slide -->
+              <div class="swiper-slide">
+                <article>
+                  <figure class="overlay overlay-1 hover-scale rounded mb-6"><a href="#"> <img src="./assets/img/photos/b7.jpg" alt="" /></a>
+                    <figcaption>
+                      <h5 class="from-top mb-0">Read More</h5>
+                    </figcaption>
+                  </figure>
+                  <div class="post-header">
+                    <h2 class="post-title h3 mb-3"><a class="link-dark" href="./blog-post.html">Morbi leo risus porta eget</a></h2>
+                  </div>
+                  <div class="post-footer">
+                    <ul class="post-meta">
+                      <li class="post-date"><i class="uil uil-calendar-alt"></i><span>7 Jan 2022</span></li>
+                      <li class="post-comments"><a href="#"><i class="uil uil-file-alt fs-15"></i>Business Tips</a></li>
+                    </ul>
+                    <!-- /.post-meta -->
+                  </div>
+                  <!-- /.post-footer -->
+                </article>
+                <!-- /article -->
+              </div>
+              <!--/.swiper-slide -->
+            </div>
+            <!-- /.swiper-wrapper -->
+          </div>
+          <!-- /.swiper -->
+        </div>
+        <!-- /.swiper-container -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section class="wrapper bg-soft-primary">
+      <div class="container py-14 pt-md-17 pb-md-21">
+        <div class="row gx-lg-8 gx-xl-12 gy-10 gy-lg-0 mb-2 align-items-end">
+          <div class="col-lg-4">
+            <h2 class="fs-16 text-uppercase text-line text-primary mb-3">Company Facts</h2>
+            <h3 class="display-4 mb-0 pe-xxl-15">We are proud of our works</h3>
+          </div>
+          <!-- /column -->
+          <div class="col-lg-8 mt-lg-2">
+            <div class="row align-items-center counter-wrapper gy-6 text-center">
+              <div class="col-md-4">
+                <h3 class="counter counter-lg">1000+</h3>
+                <p>Completed Projects</p>
+              </div>
+              <!--/column -->
+              <div class="col-md-4">
+                <h3 class="counter counter-lg">500+</h3>
+                <p>Happy Clients</p>
+              </div>
+              <!--/column -->
+              <div class="col-md-4">
+                <h3 class="counter counter-lg">150+</h3>
+                <p>Awards Won</p>
+              </div>
+              <!--/column -->
+            </div>
+            <!--/.row -->
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section class="wrapper bg-light angled upper-end lower-start">
+      <div class="container py-16 py-md-18 position-relative">
+        <div class="position-relative mt-n18 mt-md-n23 mb-16 mb-md-18">
+          <div class="shape rounded-circle bg-line primary rellax w-18 h-18" data-rellax-speed="1" style="top: -2rem; right: -2.7rem; z-index:0;"></div>
+          <div class="shape rounded-circle bg-soft-primary rellax w-18 h-18" data-rellax-speed="1" style="bottom: -1rem; left: -3rem; z-index:0;"></div>
+          <div class="card shadow-lg">
+            <div class="row gx-0">
+              <div class="col-lg-6 image-wrapper bg-image bg-cover rounded-top rounded-lg-start" data-image-src="./assets/img/photos/tm1.jpg">
+              </div>
+              <!--/column -->
+              <div class="col-lg-6">
+                <div class="p-10 p-md-11 p-lg-13">
+                  <div class="swiper-container dots-closer mb-4" data-margin="30" data-dots="true">
+                    <div class="swiper">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <blockquote class="icon icon-top fs-lg text-center">
+                            <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum ligula porta felis euismod semper. Cras justo odio.”</p>
+                            <div class="blockquote-details justify-content-center text-center">
+                              <div class="info ps-0">
+                                <h5 class="mb-1">Coriss Ambady</h5>
+                                <p class="mb-0">Financial Analyst</p>
+                              </div>
+                            </div>
+                          </blockquote>
+                        </div>
+                        <!--/.swiper-slide -->
+                        <div class="swiper-slide">
+                          <blockquote class="icon icon-top fs-lg text-center">
+                            <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum ligula porta felis euismod semper. Cras justo odio.”</p>
+                            <div class="blockquote-details justify-content-center text-center">
+                              <div class="info ps-0">
+                                <h5 class="mb-1">Cory Zamora</h5>
+                                <p class="mb-0">Marketing Specialist</p>
+                              </div>
+                            </div>
+                          </blockquote>
+                        </div>
+                        <!--/.swiper-slide -->
+                        <div class="swiper-slide">
+                          <blockquote class="icon icon-top fs-lg text-center">
+                            <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum ligula porta felis euismod semper. Cras justo odio.”</p>
+                            <div class="blockquote-details justify-content-center text-center">
+                              <div class="info ps-0">
+                                <h5 class="mb-1">Nikolas Brooten</h5>
+                                <p class="mb-0">Sales Manager</p>
+                              </div>
+                            </div>
+                          </blockquote>
+                        </div>
+                        <!--/.swiper-slide -->
+                      </div>
+                      <!-- /.swiper-wrapper -->
+                    </div>
+                    <!-- /.swiper -->
+                  </div>
+                  <!-- /.swiper-container -->
+                </div>
+                <!--/div -->
+              </div>
+              <!--/column -->
+            </div>
+            <!--/.row -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /div -->
+        <div class="row gy-6 mb-16 mb-md-18">
+          <div class="col-lg-4">
+            <h2 class="fs-16 text-uppercase text-line text-primary mt-lg-18 mb-3">Our Pricing</h2>
+            <h3 class="display-4 mb-3">We offer great and premium prices.</h3>
+            <p>Enjoy a <a href="#" class="hover">free 30-day trial</a> and experience the full service. No credit card required!</p>
+            <a href="#" class="btn btn-primary rounded mt-2">See All Prices</a>
+          </div>
+          <!--/column -->
+          <div class="col-lg-7 offset-lg-1 pricing-wrapper">
+            <div class="pricing-switcher-wrapper switcher justify-content-start justify-content-lg-end">
+              <p class="mb-0 pe-3">Monthly</p>
+              <div class="pricing-switchers">
+                <div class="pricing-switcher pricing-switcher-active"></div>
+                <div class="pricing-switcher"></div>
+                <div class="switcher-button bg-primary"></div>
+              </div>
+              <p class="mb-0 ps-3">Yearly <span class="text-red">(Save 30%)</span></p>
+            </div>
+            <div class="row gy-6 position-relative mt-5">
+              <div class="shape bg-dot primary rellax w-16 h-18" data-rellax-speed="1" style="bottom: -0.5rem; right: -1.6rem;"></div>
+              <div class="shape rounded-circle bg-soft-primary rellax w-18 h-18" data-rellax-speed="1" style="top: -1rem; left: -2rem;"></div>
+              <div class="col-md-6">
+                <div class="pricing card shadow-lg">
+                  <div class="card-body pb-12">
+                    <div class="prices text-dark">
+                      <div class="price price-show justify-content-start"><span class="price-currency">$</span><span class="price-value">19</span> <span class="price-duration">mo</span></div>
+                      <div class="price price-hide price-hidden justify-content-start"><span class="price-currency">$</span><span class="price-value">199</span> <span class="price-duration">yr</span></div>
+                    </div>
+                    <!--/.prices -->
+                    <h4 class="card-title mt-2">Premium Plan</h4>
+                    <ul class="icon-list bullet-bg bullet-soft-primary mt-7 mb-8">
+                      <li><i class="uil uil-check"></i><span><strong>5</strong> Projects </span></li>
+                      <li><i class="uil uil-check"></i><span><strong>100K</strong> API Access </span></li>
+                      <li><i class="uil uil-check"></i><span><strong>200MB</strong> Storage </span></li>
+                      <li><i class="uil uil-check"></i><span> Weekly <strong>Reports</strong></span></li>
+                      <li><i class="uil uil-times bullet-soft-red"></i><span> 7/24 <strong>Support</strong></span></li>
+                    </ul>
+                    <a href="#" class="btn btn-primary rounded">Choose Plan</a>
+                  </div>
+                  <!--/.card-body -->
+                </div>
+                <!--/.pricing -->
+              </div>
+              <!--/column -->
+              <div class="col-md-6 popular">
+                <div class="pricing card shadow-lg">
+                  <div class="card-body pb-12">
+                    <div class="prices text-dark">
+                      <div class="price price-show justify-content-start"><span class="price-currency">$</span><span class="price-value">49</span> <span class="price-duration">mo</span></div>
+                      <div class="price price-hide price-hidden justify-content-start"><span class="price-currency">$</span><span class="price-value">499</span> <span class="price-duration">yr</span></div>
+                    </div>
+                    <!--/.prices -->
+                    <h4 class="card-title mt-2">Corporate Plan</h4>
+                    <ul class="icon-list bullet-bg bullet-soft-primary mt-7 mb-8">
+                      <li><i class="uil uil-check"></i><span><strong>20</strong> Projects </span></li>
+                      <li><i class="uil uil-check"></i><span><strong>300K</strong> API Access </span></li>
+                      <li><i class="uil uil-check"></i><span><strong>500MB</strong> Storage </span></li>
+                      <li><i class="uil uil-check"></i><span> Weekly <strong>Reports</strong></span></li>
+                      <li><i class="uil uil-check"></i><span> 7/24 <strong>Support</strong></span></li>
+                    </ul>
+                    <a href="#" class="btn btn-primary rounded">Choose Plan</a>
+                  </div>
+                  <!--/.card-body -->
+                </div>
+                <!--/.pricing -->
+              </div>
+              <!--/column -->
+            </div>
+            <!--/.row -->
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+        <div class="row gy-10 gy-sm-13 gx-lg-3 align-items-center">
+          <div class="col-md-8 col-lg-6 position-relative">
+            <div class="shape bg-dot primary rellax w-17 h-21" data-rellax-speed="1" style="top: -2rem; left: -1.9rem;"></div>
+            <div class="shape rounded bg-soft-primary rellax d-md-block" data-rellax-speed="0" style="bottom: -1.8rem; right: -1.5rem; width: 85%; height: 90%; "></div>
+            <figure class="rounded"><img src="./assets/img/photos/about14.jpg" srcset="./assets/img/photos/about14@2x.jpg 2x" alt="" /></figure>
+          </div>
+          <!--/column -->
+          <div class="col-lg-5 col-xl-4 offset-lg-1">
+            <h2 class="fs-16 text-uppercase text-line text-primary mb-3">Get In Touch</h2>
+            <h2 class="display-4 mb-8">Convinced yet? Let's make something great together.</h2>
+            <div class="d-flex flex-row">
+              <div>
+                <div class="icon text-primary fs-28 me-6 mt-n1"> <i class="uil uil-location-pin-alt"></i> </div>
+              </div>
+              <div>
+                <h5 class="mb-1">Address</h5>
+                <address>Moonshine St. 14/05 Light City, <br class="d-none d-md-block" />London, United Kingdom</address>
+              </div>
+            </div>
+            <div class="d-flex flex-row">
+              <div>
+                <div class="icon text-primary fs-28 me-6 mt-n1"> <i class="uil uil-phone-volume"></i> </div>
+              </div>
+              <div>
+                <h5 class="mb-1">Phone</h5>
+                <p>00 (123) 456 78 90</p>
+              </div>
+            </div>
+            <div class="d-flex flex-row">
+              <div>
+                <div class="icon text-primary fs-28 me-6 mt-n1"> <i class="uil uil-envelope"></i> </div>
+              </div>
+              <div>
+                <h5 class="mb-1">E-mail</h5>
+                <p class="mb-0"><a href="mailto:sandbox@email.com" class="link-body">sandbox@email.com</a></p>
+              </div>
+            </div>
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="bg-dark text-inverse">
+    <div class="container pt-17 pt-md-19 pb-13 pb-md-15">
+      <div class="row gy-6 gy-lg-0">
+        <div class="col-md-4 col-lg-3">
+          <div class="widget">
+            <img class="mb-4" src="./assets/img/logo-light.png" srcset="./assets/img/logo-light@2x.png 2x" alt="" />
+            <p class="mb-4">© 2023 Sandbox. <br class="d-none d-lg-block" />All rights reserved.</p>
+            <nav class="nav social social-white">
+              <a href="#"><i class="uil uil-twitter"></i></a>
+              <a href="#"><i class="uil uil-facebook-f"></i></a>
+              <a href="#"><i class="uil uil-dribbble"></i></a>
+              <a href="#"><i class="uil uil-instagram"></i></a>
+              <a href="#"><i class="uil uil-youtube"></i></a>
+            </nav>
+            <!-- /.social -->
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+        <div class="col-md-4 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title text-white mb-3">Get in Touch</h4>
+            <address class="pe-xl-15 pe-xxl-17">Moonshine St. 14/05 Light City, London, United Kingdom</address>
+            <a href="mailto:#">info@email.com</a><br /> 00 (123) 456 78 90
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+        <div class="col-md-4 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title text-white mb-3">Learn More</h4>
+            <ul class="list-unstyled  mb-0">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Projects</a></li>
+              <li><a href="#">Terms of Use</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+        <div class="col-md-12 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title text-white mb-3">Our Newsletter</h4>
+            <p class="mb-5">Subscribe to our newsletter to get our news & deals delivered to you.</p>
+            <div class="newsletter-wrapper">
+              <!-- Begin Mailchimp Signup Form -->
+              <div id="mc_embed_signup2">
+                <form action="https://elemisfreebies.us20.list-manage.com/subscribe/post?u=aa4947f70a475ce162057838d&amp;id=b49ef47a9a" method="post" id="mc-embedded-subscribe-form2" name="mc-embedded-subscribe-form" class="validate dark-fields" target="_blank" novalidate>
+                  <div id="mc_embed_signup_scroll2">
+                    <div class="mc-field-group input-group form-floating">
+                      <input type="email" value="" name="EMAIL" class="required email form-control" placeholder="Email Address" id="mce-EMAIL2">
+                      <label for="mce-EMAIL2">Email Address</label>
+                      <input type="submit" value="Join" name="subscribe" id="mc-embedded-subscribe2" class="btn btn-primary ">
+                    </div>
+                    <div id="mce-responses2" class="clear">
+                      <div class="response" id="mce-error-response2" style="display:none"></div>
+                      <div class="response" id="mce-success-response2" style="display:none"></div>
+                    </div> <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ddc180777a163e0f9f66ee014_4b1bcfa0bc" tabindex="-1" value=""></div>
+                    <div class="clear"></div>
+                  </div>
+                </form>
+              </div>
+              <!--End mc_embed_signup-->
+            </div>
+            <!-- /.newsletter-wrapper -->
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+      </div>
+      <!--/.row -->
+    </div>
+    <!-- /.container -->
+  </footer>
+  <div class="progress-wrap">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+    </svg>
+  </div>
+  <script src="./assets/js/plugins.js"></script>
+  <script src="./assets/js/theme.js"></script>
+</body>
+
+</html>
